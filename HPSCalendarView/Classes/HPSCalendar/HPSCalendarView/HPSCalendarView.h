@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+/**
+ *  This protocol HPSCalendarViewDelegate should be implemented to get the 
+ selected date values from the calendar
+ */
+@protocol HPSCalendarViewDelegate <NSObject>
+
+- (void) selectedDateDictionaryForCalendarView:(NSDictionary *)dateDic;
+
+@end
 
 @interface HPSCalendarView : UIView<UICollectionViewDelegate,
 UICollectionViewDataSource>
-
+@property (nonatomic, strong) id<HPSCalendarViewDelegate> delegate;
 @end

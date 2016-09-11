@@ -146,4 +146,15 @@
     return UIEdgeInsetsMake(0, 0.0, 0.0, 0.0);
 }
 
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dic = [daysArray objectAtIndex:indexPath.row];
+    NSString *day = [dic valueForKey:@"day"];
+    NSString *month = [dic valueForKey:@"month"];
+    NSString *year = [dic valueForKey:@"year"];
+    [self.delegate selectedDateDictionaryForCalendarView:@{
+                                                          @"day": day,
+                                                          @"month": month,
+                                                          @"year": year}];
+}
+
 @end
