@@ -1,0 +1,19 @@
+PODS:
+  - HPSCalendarView (0.1.0)
+  - Kiwi (2.4.0)
+
+DEPENDENCIES:
+  - HPSCalendarView (from `../`)
+  - Kiwi
+
+EXTERNAL SOURCES:
+  HPSCalendarView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HPSCalendarView: 96a79e0d127b89441efe9a46f8b408b22ac3058d
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+
+PODFILE CHECKSUM: adb2f991f7bfc6dc4e299f5dacb2498bf29e1c4a
+
+COCOAPODS: 1.0.1

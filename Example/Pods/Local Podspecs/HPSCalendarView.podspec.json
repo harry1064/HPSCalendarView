@@ -1,0 +1,22 @@
+{
+  "name": "HPSCalendarView",
+  "version": "0.1.0",
+  "summary": "A short description of HPSCalendarView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/HPSCalendarView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Harpreet Singh": "harry.singh1064@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/HPSCalendarView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HPSCalendarView/Classes/**/*"
+}
