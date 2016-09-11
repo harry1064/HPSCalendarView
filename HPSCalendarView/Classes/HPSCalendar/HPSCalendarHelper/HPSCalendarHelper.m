@@ -59,6 +59,8 @@
     NSInteger daysInPreviousDate = [self numberOfDaysInMonthForDate:previousDate];
     NSInteger daysInNextDate = [self numberOfDaysInMonthForDate:nextDate];
     NSInteger firstWeekDayIndex = [self weekdayIndexForWeekDayName:[weekDaysArray firstObject]];
+    NSString *monthName = [self monthNameForDate:date];
+    NSInteger year = [self yearForDate:date];
     NSInteger count = 0;
     for (NSInteger i = daysInPreviousDate - firstWeekDayIndex; i <= daysInPreviousDate; i++) {
         NSString *day = [NSString stringWithFormat:@"%ld", (long)i];
@@ -68,7 +70,7 @@
     }
     for (int i = 0; i < daysInCurrentDate; i++) {
         NSString *day = [NSString stringWithFormat:@"%ld", (long)i+1];
-        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:day, @"day", @(YES), @"isEnable", nil];
+        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:day, @"day", @(YES), @"isEnable", monthName, @"month", [NSString stringWithFormat:@"%@", year], @"year", nil];
         [daysArray addObject:dic];
         count = count + 1;
     }
