@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface HPSDayCell : UICollectionViewCell
+/**
+ *  An instance of UILabel to repersents the value of day.
+ */
 @property (nonatomic, strong) UILabel *dayLabel;
 @end
