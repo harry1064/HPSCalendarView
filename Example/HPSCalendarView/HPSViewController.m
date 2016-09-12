@@ -7,7 +7,7 @@
 //
 
 #import "HPSViewController.h"
-#import <HPSCalendarView/HPSCalendarView.h>
+
 @interface HPSViewController ()
 
 @end
@@ -20,6 +20,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     HPSCalendarView *calendar = [[HPSCalendarView alloc] init];
+    calendar.delegate = self;
     calendar.translatesAutoresizingMaskIntoConstraints = FALSE;
     [self.view addSubview:calendar];
     NSLayoutConstraint *leadingConstraint = [NSLayoutConstraint constraintWithItem:calendar
@@ -60,4 +61,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark HPSCalendarViewDelgate 
+
+- (void) selectedDateDictionaryForCalendarView:(NSDictionary *)dateDic {
+    NSLog(@"selected date dic == %@", dateDic);
+}
 @end
