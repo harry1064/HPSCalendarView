@@ -5,7 +5,5 @@ target 'HPSCalendarView_Example' do
 
   target 'HPSCalendarView_Tests' do
     inherit! :search_paths
-
-    pod 'Kiwi'
   end
 end

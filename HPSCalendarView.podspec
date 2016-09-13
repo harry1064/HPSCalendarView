@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'HPSCalendarView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of HPSCalendarView.'
+  s.summary          = 'A UIView to repersent calendar UI in IOS applications.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,15 +18,16 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+A calendar UI for the IOS application to present to user to select date.As there is
+no Calendar UI like we see in web inbuilt in ios so i decided to make one for those who want it to use in their applications
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/HPSCalendarView'
+  s.homepage         = 'https://github.com/harry1064/HPSCalendarView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Harpreet Singh' => 'harry.singh1064@gmail.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/HPSCalendarView.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/harry1064/HPSCalendarView.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://www.facebook.com/harry1064'
 
   s.ios.deployment_target = '8.0'
 

@@ -7,7 +7,7 @@
 //
 
 @import UIKit;
-
-@interface HPSViewController : UIViewController
+#import <HPSCalendarView/HPSCalendarView.h>
+@interface HPSViewController : UIViewController<HPSCalendarViewDelegate>
 
 @end
