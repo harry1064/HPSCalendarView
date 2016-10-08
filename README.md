@@ -20,6 +20,10 @@ it, simply add the following line to your Podfile:
 pod "HPSCalendarView"
 ```
 
+## Screenshot
+
+![screenshot](https://github.com/harry1064/HPSCalendarView/blob/development/Example/img.png?raw=true)
+
 ## Author
 
 Harpreet Singh, harry.singh1064@gmail.com
