@@ -7,7 +7,7 @@
 //
 
 #import "HPSDayCell.h"
-
+#define DEFAULT_CELL_COLOR [UIColor colorWithRed:25.0/255.0 green:50.0/255.0 blue:60.0/255.0 alpha:1.0]
 @implementation HPSDayCell
 
 - (id) init {
@@ -26,7 +26,7 @@
 }
 
 - (void) setupCell {
-    self.contentView.backgroundColor=[UIColor colorWithRed:25.0/255.0 green:50.0/255.0 blue:60.0/255.0 alpha:1.0];
+    [self setCellColor:DEFAULT_CELL_COLOR];
     self.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
     self.contentView.layer.borderWidth = 1;
     [self setupViewHierarchy];
@@ -53,5 +53,9 @@
     
     NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:self.dayLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
     [self.contentView addConstraint:bottomConstraint];
+}
+
+- (void) setCellColor:(UIColor *)color {
+    self.contentView.backgroundColor= color ? color : DEFAULT_CELL_COLOR;
 }
 @end

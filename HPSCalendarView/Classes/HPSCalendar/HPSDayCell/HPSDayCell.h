@@ -13,4 +13,9 @@
  *  An instance of UILabel to repersents the value of day.
  */
 @property (nonatomic, strong) UILabel *dayLabel;
+/**
+ *  Set the backgroundColor to the color.If color is nil, Default cell color is 
+ *  applied.
+ */
+- (void) setCellColor:(UIColor *)color;
 @end
