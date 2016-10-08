@@ -18,6 +18,7 @@
     UILabel *monthLabel;
     HPSCalendarHelper *calendarHelper;
     NSDate *today;
+    NSDate *currentCalendarDate;
 }
 - (id) init {
     widthOfCell = DEFAULT_WIDTH / 7.2;
@@ -57,9 +58,10 @@
 
 - (void) setupCalendarView {
     today = [NSDate date];
+    !currentCalendarDate ? currentCalendarDate = [NSDate date] : nil;
     calendarHelper = [[HPSCalendarHelper alloc] init];
-    [monthLabel setText:[calendarHelper monthNameForDate:today]];
-    daysArray = [calendarHelper daysArrayForCalendarWithDate:today];
+    [monthLabel setText:[calendarHelper monthNameForDate:currentCalendarDate]];
+    daysArray = [calendarHelper daysArrayForCalendarWithDate:currentCalendarDate];
     [self setBackgroundColor:[UIColor blackColor]];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setMinimumInteritemSpacing:0];
@@ -98,18 +100,18 @@
 }
 
 - (void) nextMonthButtonClicked:(UIButton *)sender {
-    today = [calendarHelper dateByAddingUnit:NSCalendarUnitMonth value:1 toDate:today];
+    currentCalendarDate = [calendarHelper dateByAddingUnit:NSCalendarUnitMonth value:1 toDate:currentCalendarDate];
     [self reloadData];
 }
 
 - (void) previousMonthButtonClicked:(UIButton *)sender {
-    today = [calendarHelper dateByAddingUnit:NSCalendarUnitMonth value:-1 toDate:today];
+    currentCalendarDate = [calendarHelper dateByAddingUnit:NSCalendarUnitMonth value:-1 toDate:currentCalendarDate];
     [self reloadData];
 }
 
 - (void) reloadData {
-    [monthLabel setText:[NSString stringWithFormat:@"%@, %ld", [calendarHelper monthNameForDate:today], (long)[calendarHelper yearForDate:today]]];
-    daysArray = [calendarHelper daysArrayForCalendarWithDate:today];
+    [monthLabel setText:[NSString stringWithFormat:@"%@, %ld", [calendarHelper monthNameForDate:currentCalendarDate], (long)[calendarHelper yearForDate:currentCalendarDate]]];
+    daysArray = [calendarHelper daysArrayForCalendarWithDate:currentCalendarDate];
     [collectionview reloadData];
 }
 
@@ -133,6 +135,11 @@
     }else {
         [cell.dayLabel setTextColor:[UIColor lightGrayColor]];
         [cell setUserInteractionEnabled:NO];
+    }
+    if ([[dic valueForKey:@"isToday"] boolValue]) {
+        [cell setCellColor:[UIColor colorWithRed:255.0/255.0 green:153.0/255.0 blue:51.0/255.0 alpha:1.0]];
+    }else{
+        [cell setCellColor:nil];
     }
     return cell;
 }

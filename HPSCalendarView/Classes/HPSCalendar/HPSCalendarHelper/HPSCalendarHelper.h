@@ -71,4 +71,14 @@
  *  @return An instance of NSArray of calendar symbols.
  */
 - (NSArray *) weekDaySymbol;
+/**
+ *  This method returns check using day, month and year provided as argument that 
+ *  combination of these three repersents the current day
+ *  
+ *  @param day NSInteger
+ *  @param month NSInteger
+ *  @param year NSInteger
+ *  @return BOOL.
+ */
+- (BOOL) isToday:(NSInteger) day month:(NSInteger)month year:(NSInteger)year;
 @end

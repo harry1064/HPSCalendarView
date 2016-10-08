@@ -60,6 +60,7 @@
     NSInteger daysInNextDate = [self numberOfDaysInMonthForDate:nextDate];
     NSInteger firstWeekDayIndex = [self weekdayIndexForWeekDayName:[weekDaysArray firstObject]];
     NSString *monthName = [self monthNameForDate:date];
+    NSInteger month = [self monthForDate:date];
     NSString *year = [NSString stringWithFormat:@"%ld", (long)[self yearForDate:date]];
     NSInteger count = 0;
     for (NSInteger i = daysInPreviousDate - firstWeekDayIndex; i <= daysInPreviousDate; i++) {
@@ -70,7 +71,8 @@
     }
     for (int i = 0; i < daysInCurrentDate; i++) {
         NSString *day = [NSString stringWithFormat:@"%ld", (long)i+1];
-        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:day, @"day", @(YES), @"isEnable", monthName, @"month", year, @"year", nil];
+        BOOL isToday = [self isToday:(i+1) month:month year:[year integerValue]];
+        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:day, @"day", @(YES), @"isEnable", monthName, @"month", year, @"year", @(isToday), @"isToday", nil];
         [daysArray addObject:dic];
         count = count + 1;
     }
@@ -105,6 +107,11 @@
     return monthName;
 }
 
+- (NSInteger) monthForDate:(NSDate *)date {
+    NSDateComponents *dateComponents = [self.calendar components:NSCalendarUnitMonth fromDate:date];
+    return dateComponents.month;
+}
+
 - (NSInteger) yearForDate:(NSDate *)date {
      NSDateComponents *dateComponents = [self.calendar components:NSCalendarUnitYear fromDate:date];
     return dateComponents.year;
@@ -119,5 +126,15 @@
 
 - (NSArray *) weekDaySymbol {
     return [self.calendar weekdaySymbols];
+}
+
+- (BOOL) isToday:(NSInteger) day month:(NSInteger)month year:(NSInteger)year {
+     NSDateComponents *dateComponents = [self.calendar
+                                         components:NSCalendarUnitMonth|NSCalendarUnitYear|NSCalendarUnitDay
+                                         fromDate:[NSDate date]];
+    if (day == dateComponents.day && month == dateComponents.month && year == dateComponents.year) {
+        return TRUE;
+    }
+    return FALSE;
 }
 @end
