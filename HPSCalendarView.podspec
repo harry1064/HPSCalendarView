@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HPSCalendarView'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A UIView to repersent calendar UI in IOS applications.'
 
 # This description is used to generate tags and improve search results.
